@@ -11,7 +11,7 @@ public class Main {
         jan.setDatumNarozeni(LocalDate.of(1995, 4, 5));
 
         System.out.println();
-        System.out.println(jan.getJmeno() + " " + jan.getPrijmeni() + " (" + jan.getDatumNarozeni() + ")");
+        System.out.println(jan);
         System.out.println();
 
         // Pokoje

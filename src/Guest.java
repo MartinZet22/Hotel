@@ -1,9 +1,12 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Guest {
     private String jmeno;
     private String prijmeni;
     private LocalDate datumNarozeni;
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public Guest(String jmeno, String prijmeni, LocalDate datumNarozeni) {
         this.jmeno = jmeno;
@@ -35,8 +38,12 @@ public class Guest {
         this.datumNarozeni = datumNarozeni;
     }
 
+    public String getFormattedDatumNarozeni() {
+        return datumNarozeni.format(FORMATTER);
+    }
+
     @Override
     public String toString() {
-        return "Jméno: '" + jmeno + "', Příjmení: '" + prijmeni + "', Datum narození: " + datumNarozeni;
+        return jmeno + " " + prijmeni + " (" + getFormattedDatumNarozeni() + ")";
     }
 }
