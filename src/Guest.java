@@ -42,6 +42,11 @@ public class Guest {
         return datumNarozeni.format(FORMATTER);
     }
 
+    // Nová metoda GETDESCRIPTION
+    public String getDescription() {
+        return jmeno + " " + prijmeni + " (" + getFormattedDatumNarozeni() + ")";
+    }
+
     @Override
     public String toString() {
         return jmeno + " " + prijmeni + " (" + getFormattedDatumNarozeni() + ")";

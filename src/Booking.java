@@ -47,7 +47,7 @@ public class Booking {
     public String toString() {
         String hostiText = "";
         for (Guest g : hosti) {
-            hostiText = hostiText + "  - " + g + "\n";
+            hostiText = hostiText + "  - " + g.getDescription() + "\n";
         }
 
         return "Rezervace:\n" +
