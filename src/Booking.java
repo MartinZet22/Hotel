@@ -8,11 +8,11 @@ public class Booking {
     private List<Guest> hosti = new ArrayList<>();
     private LocalDate od;
     private LocalDate doKdy;
-    private String typPobytu;
+    private PobytTyp typPobytu;
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public Booking(Room pokoj, List<Guest> hosti, LocalDate od, LocalDate do_, String typPobytu) {
+    public Booking(Room pokoj, List<Guest> hosti, LocalDate od, LocalDate do_, PobytTyp typPobytu) {
         if (hosti == null || hosti.isEmpty()) {
             throw new IllegalArgumentException("Rezervace musí obsahovat alespoň jednoho hosta.");
         }
@@ -21,6 +21,11 @@ public class Booking {
         this.od = od;
         this.doKdy = do_;
         this.typPobytu = typPobytu;
+    }
+
+    public enum PobytTyp {
+        PRACOVNI,
+        REKREACNI
     }
 
     public String getFormattedOd() {
@@ -35,7 +40,7 @@ public class Booking {
     public String toString() {
         String hostiText = "";
         for (Guest g : hosti) {
-            hostiText += "  - " + g.toString() + "\n";
+            hostiText = hostiText + "  - " + g + "\n";
         }
 
         return "Rezervace:\n" +

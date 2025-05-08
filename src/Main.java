@@ -23,10 +23,10 @@ public class Main {
         List<Booking> rezervace = new ArrayList<>();
 
         // Rezervace pro Adélu
-        rezervace.add(new Booking(pokoj1, Arrays.asList(adela), LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), "rekreační"));
+        rezervace.add(new Booking(pokoj1, Arrays.asList(adela), LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), Booking.PobytTyp.REKREACNI));
 
         // Rezervace pro oba
-        rezervace.add(new Booking(pokoj3, Arrays.asList(adela,jan), LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14), "rekreační"));
+        rezervace.add(new Booking(pokoj3, Arrays.asList(adela,jan), LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14), Booking.PobytTyp.REKREACNI));
 
         // Výpis všech rezervací
         for (Booking r : rezervace) {
