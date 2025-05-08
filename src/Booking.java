@@ -12,16 +12,23 @@ public class Booking {
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public Booking(Room pokoj, List<Guest> hosti, LocalDate od, LocalDate do_, PobytTyp typPobytu) {
+    // Původní konstruktor - umožňuje zadat konkrétní data
+    public Booking(Room pokoj, List<Guest> hosti, LocalDate od, LocalDate doKdy, PobytTyp typPobytu) {
         if (hosti == null || hosti.isEmpty()) {
             throw new IllegalArgumentException("Rezervace musí obsahovat alespoň jednoho hosta.");
         }
         this.pokoj = pokoj;
         this.hosti = hosti;
         this.od = od;
-        this.doKdy = do_;
+        this.doKdy = doKdy;
         this.typPobytu = typPobytu;
     }
+
+    // Nový konstruktor - automaticky nastaví rezervaci na dnešek + 6 nocí
+    public Booking(Room pokoj, List<Guest> hosti, PobytTyp typPobytu) {
+        this(pokoj, hosti, LocalDate.now(), LocalDate.now().plusDays(6), typPobytu);
+    }
+
 
     public enum PobytTyp {
         PRACOVNI,

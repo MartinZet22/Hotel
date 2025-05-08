@@ -6,8 +6,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Hosté
-        Guest adela = new Guest("Adéla", "Malíková", LocalDate.of (1993, 3, 13));
+        Guest adela = new Guest("Adéla", "Malíková", LocalDate.of(1993, 3, 13));
         Guest jan = new Guest("Jan", "Dvořáček", LocalDate.of(1995, 5, 5));
+
+        Guest brambora = new Guest("Stará", "Brambora", LocalDate.of(2024, 9, 27));
+
         jan.setDatumNarozeni(LocalDate.of(1995, 4, 5));
 
         System.out.println();
@@ -23,10 +26,13 @@ public class Main {
         List<Booking> rezervace = new ArrayList<>();
 
         // Rezervace pro Adélu
-        rezervace.add(new Booking(pokoj1, Arrays.asList(adela), LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), Booking.PobytTyp.REKREACNI));
+        rezervace.add(new Booking(pokoj1, Arrays.asList(adela), LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), Booking.PobytTyp.PRACOVNI));
 
         // Rezervace pro oba
         rezervace.add(new Booking(pokoj3, Arrays.asList(adela,jan), LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14), Booking.PobytTyp.REKREACNI));
+
+        // Rezervace pro Bramboru s automatickým nastavením pobytu
+        rezervace.add(new Booking(pokoj2, Arrays.asList(brambora), Booking.PobytTyp.REKREACNI));
 
         // Výpis všech rezervací
         for (Booking r : rezervace) {
