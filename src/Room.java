@@ -1,24 +1,29 @@
 public class Room {
-    private int cislo;
+    private int cisloPokoje;
     private int pocetLuzek;
     private boolean balkon;
     private boolean vyhledNaMore;
     private int cenaZaNoc;
 
-    public Room(int cislo, int pocetLuzek, boolean balkon, boolean vyhledNaMore, int cenaZaNoc) {
-        this.cislo = cislo;
+
+    public Room(int cisloPokoje, int pocetLuzek, boolean balkon, boolean vyhledNaMore, int cenaZaNoc) {
+        this.cisloPokoje = cisloPokoje;
         this.pocetLuzek = pocetLuzek;
         this.balkon = balkon;
         this.vyhledNaMore = vyhledNaMore;
         this.cenaZaNoc = cenaZaNoc;
     }
 
-    public int getCislo() {
-        return cislo;
+    public int getPokoj() {
+        return cisloPokoje;
     }
 
-    public void setCislo(int cislo) {
-        this.cislo = cislo;
+    public int getCisloPokoje() {
+        return cisloPokoje;
+    }
+
+    public void setPokoj(int cisloPokoje) {
+        this.cisloPokoje = cisloPokoje;
     }
 
     public int getPocetLuzek() {
@@ -55,7 +60,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Číslo " + cislo + ", Počet lůžek: " + pocetLuzek +
+        return "Číslo " + cisloPokoje + ", Počet lůžek: " + pocetLuzek +
                 ", Balkón: " + (balkon ? "ano" : "ne") +
                 ", Výhled na moře: " + (vyhledNaMore ? "ano" : "ne") +
                 ", Cena za noc: " + cenaZaNoc + " Kč";

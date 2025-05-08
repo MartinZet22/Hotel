@@ -43,6 +43,15 @@ public class Booking {
         return doKdy.format(FORMATTER);
     }
 
+    public List<Guest> getHosti() {
+        return hosti;
+    }
+
+    public Room getPokoj() {
+        return pokoj;
+    }
+
+
     @Override
     public String toString() {
         String hostiText = "";

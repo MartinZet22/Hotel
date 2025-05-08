@@ -39,5 +39,43 @@ public class Main {
             System.out.println(r);
             System.out.println();
         }
+
+        // Výpis rezervací pro konkrétního hosta (např. Stará Brambora)
+        List<Booking> rezervaceBrambory = getBookingsForGuest(brambora, rezervace);
+        System.out.println("Rezervace pro Starou Bramboru:");
+        for (Booking r : rezervaceBrambory) {
+            System.out.println(r);
+            System.out.println();
+        }
+
+        // Výpis rezervací pro konkretní pokoj (např. Pokoj číslo 3)
+        List<Booking> rezervacePokoj3 = getBookingsForRoom(pokoj3, rezervace);
+        System.out.println("Rezervace pro pokoj č. 3:");
+        for (Booking r : rezervacePokoj3) {
+            System.out.println(r);
+            System.out.println();
+        }
+
+
+    }
+
+    public static List<Booking> getBookingsForGuest(Guest guest, List<Booking> rezervace) {
+        List<Booking> result = new ArrayList<>();
+        for (Booking booking : rezervace) {
+            if (booking.getHosti().contains(guest)) {
+                result.add(booking);
+            }
+        }
+        return result;
+    }
+
+    public static List<Booking> getBookingsForRoom(Room room, List<Booking> rezervace) {
+        List<Booking> result = new ArrayList<>();
+        for (Booking booking : rezervace) {
+            if (booking.getPokoj().getCisloPokoje() == room.getCisloPokoje()) {
+                result.add(booking);
+            }
+        }
+        return result;
     }
 }
